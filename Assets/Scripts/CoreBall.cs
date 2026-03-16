@@ -68,6 +68,32 @@ public class CoreBall : MonoBehaviour
     }
 
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        // Only randomize on walls (optional)
+        if (col.collider.CompareTag("Walls"))
+        {
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add a small random angle (degrees)
+            float randomAngle = Random.Range(-8f, 8f);
+
+            // Rotate the velocity vector
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
+
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * PlayerRigidbod2D.linearVelocity.magnitude;
+
+            if (Mathf.Abs(PlayerRigidbod2D.linearVelocity.x) < 0.2f)
+            {
+                PlayerRigidbod2D.linearVelocity = new Vector2(
+                    Mathf.Sign(PlayerRigidbod2D.linearVelocity.x) * 0.2f,
+                    PlayerRigidbod2D.linearVelocity.y
+                );
+            }
+
+        }
+    }
 
 
 
