@@ -76,7 +76,7 @@ public class CoreBall : MonoBehaviour
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
             // Add a small random angle (degrees)
-            float randomAngle = Random.Range(-30f, 30f);
+            float randomAngle = Random.Range(-12f, 12f);
 
             // Rotate the velocity vector
             v = Quaternion.Euler(0, 0, randomAngle) * v;

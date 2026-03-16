@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Players2
   rb: {fileID: 159791968}
-  speed: 10
+  speed: 5
 --- !u!50 &159791968 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3515449355665299769, guid: f4c54e99ab95e8a4a8b23d56f3581b43, type: 3}
@@ -975,6 +975,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1066173447}
     m_Modifications:
+    - target: {fileID: 839143707086474785, guid: f4c54e99ab95e8a4a8b23d56f3581b43, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2554333698680826542, guid: f4c54e99ab95e8a4a8b23d56f3581b43, type: 3}
       propertyPath: m_Name
       value: Player 1
