@@ -21,7 +21,10 @@ public class LifeSystem : MonoBehaviour
     {
         Lifes += 2;
     }
-
+    public void ResetLifes()
+    {
+        Lifes = 3;
+    }
 
     public void NoLifesCheckMeltdown()
     {

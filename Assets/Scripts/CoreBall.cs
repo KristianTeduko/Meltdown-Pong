@@ -47,35 +47,6 @@ public class CoreBall : MonoBehaviour
         PlayerRigidbod2D.AddForce(direction, ForceMode2D.Impulse);
     }
 
-
-
-
-    private int lastDirection = -1;
-
-    //public void RandomBallMovement()
-    //{
-    //    int newDirection;
-
-    //    // reroll until direction is different from last
-    //    do
-    //    {
-    //        newDirection = Random.Range(0, directions.Length);
-    //    }
-    //    while (newDirection == lastDirection);
-
-    //    lastDirection = newDirection;
-
-    //    ballRotation = directions[newDirection];
-
-    //    Vector2 direction = Quaternion.Euler(0, 0, ballRotation) * Vector2.right;
-
-    //    // 90° rotation
-    //    Vector2 perpendicular = new Vector2(-direction.y, -direction.x);
-
-    //    PlayerRigidbod2D.AddForce(perpendicular * Speed, ForceMode2D.Impulse);
-    //}
-
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Only randomize on walls (optional)
@@ -104,8 +75,6 @@ public class CoreBall : MonoBehaviour
         if (collision.transform.tag == "Walls")
         {
             Debug.Log("osumaoli hyvä");
-            //RandomBallMovement();
-
         }
 
         if (collision.transform.tag == "KillZone")
@@ -116,7 +85,7 @@ public class CoreBall : MonoBehaviour
             coreRespawner.spawnCore();
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 0);
         }
 
         if (collision.transform.tag == "KillZone2")
@@ -127,7 +96,7 @@ public class CoreBall : MonoBehaviour
             coreRespawner.spawnCore();
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 0);
             
         }
     }
@@ -141,7 +110,7 @@ public class CoreBall : MonoBehaviour
     }
     void FixedUpdate()
     {
-        PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed;
+        PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
     }
 
 }
