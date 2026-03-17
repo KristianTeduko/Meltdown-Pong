@@ -7,6 +7,11 @@ public class CoreBall : MonoBehaviour
     public Rigidbody2D PlayerRigidbod2D;
     public float force = 1f;
 
+    GameController gameController;
+
+    public CoreRespawner coreRespawner;
+    public LifeSystem lifeSystem;
+
     int ballRotation;
 
     Vector2 movement;
@@ -19,9 +24,12 @@ public class CoreBall : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameController = FindFirstObjectByType<GameController>();
+        coreRespawner = FindFirstObjectByType<CoreRespawner>();
+        lifeSystem = FindFirstObjectByType<LifeSystem>();
 
-        StartRandomBallMovement();
-        
+        Invoke("StartRandomBallMovement", 1);
+
     }
 
 
@@ -37,41 +45,41 @@ public class CoreBall : MonoBehaviour
 
         Vector2 direction = Quaternion.Euler(0, 0, ballRotation) * Vector2.right; // add speed to ball
         PlayerRigidbod2D.AddForce(direction, ForceMode2D.Impulse);
-
-
     }
+
+
 
 
     private int lastDirection = -1;
 
-    public void RandomBallMovement()
-    {
-        int newDirection;
+    //public void RandomBallMovement()
+    //{
+    //    int newDirection;
 
-        // reroll until direction is different from last
-        do
-        {
-            newDirection = Random.Range(0, directions.Length);
-        }
-        while (newDirection == lastDirection);
+    //    // reroll until direction is different from last
+    //    do
+    //    {
+    //        newDirection = Random.Range(0, directions.Length);
+    //    }
+    //    while (newDirection == lastDirection);
 
-        lastDirection = newDirection;
+    //    lastDirection = newDirection;
 
-        ballRotation = directions[newDirection];
+    //    ballRotation = directions[newDirection];
 
-        Vector2 direction = Quaternion.Euler(0, 0, ballRotation) * Vector2.right;
+    //    Vector2 direction = Quaternion.Euler(0, 0, ballRotation) * Vector2.right;
 
-        // 90° rotation
-        Vector2 perpendicular = new Vector2(-direction.y, -direction.x);
+    //    // 90° rotation
+    //    Vector2 perpendicular = new Vector2(-direction.y, -direction.x);
 
-        PlayerRigidbod2D.AddForce(perpendicular * Speed, ForceMode2D.Impulse);
-    }
+    //    PlayerRigidbod2D.AddForce(perpendicular * Speed, ForceMode2D.Impulse);
+    //}
 
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         // Only randomize on walls (optional)
-        if (col.collider.CompareTag("Walls"))
+        if (collision.collider.CompareTag("Walls"))
         {
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
@@ -91,7 +99,36 @@ public class CoreBall : MonoBehaviour
                     PlayerRigidbod2D.linearVelocity.y
                 );
             }
+            
+        }
+        if (collision.transform.tag == "Walls")
+        {
+            Debug.Log("osumaoli hyvä");
+            //RandomBallMovement();
 
+        }
+
+        if (collision.transform.tag == "KillZone")
+        {
+            Debug.Log("osumaoli hyväFREEZEDOWN");
+            lifeSystem.LoseOneLife();
+            lifeSystem.NoLifesCheckFreezedown();
+            coreRespawner.spawnCore();
+            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(gameObject, 1);
+        }
+
+        if (collision.transform.tag == "KillZone2")
+        {
+            Debug.Log("osumaoli hyväMELTDOWN");
+            lifeSystem.LoseOneLife();
+            lifeSystem.NoLifesCheckMeltdown();
+            coreRespawner.spawnCore();
+            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(gameObject, 1);
+            
         }
     }
 
@@ -107,14 +144,4 @@ public class CoreBall : MonoBehaviour
         PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed;
     }
 
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.transform.tag == "Walls")
-        {
-            Debug.Log("osumaoli hyvä");
-            //RandomBallMovement();
-
-        }
-    }
 }
