@@ -10,8 +10,13 @@ public class PowerUpSpawner : MonoBehaviour
 
     public GameObject ballsplittwo;
     public GameObject ballsplitthree;
+    public GameObject ballonehp;
+    public GameObject balltwohp;
     public float respawnTime2split = 30.0f;
     public float respawnTime3split = 40.0f;
+    public float respawnTimeonehp = 10f;
+    public float respawnTimetwohp = 15f;
+
     Vector2 pos = new Vector2(0f, 4f);
 
 
@@ -21,6 +26,8 @@ public class PowerUpSpawner : MonoBehaviour
     {
         StartCoroutine(powerupRandom2split());
         StartCoroutine(powerupRandom3split());
+        StartCoroutine(powerup1HP());
+        StartCoroutine(powerup2HP());
 
     }
     public void spawnCore2split()
@@ -35,6 +42,21 @@ public class PowerUpSpawner : MonoBehaviour
     {
 
         GameObject a = Instantiate(ballsplitthree) as GameObject;
+        a.transform.position = pos;
+
+    }
+    public void spawn1HP()
+    {
+
+        GameObject a = Instantiate(ballonehp) as GameObject;
+        a.transform.position = pos;
+
+    }
+
+    public void spawn2HP()
+    {
+
+        GameObject a = Instantiate(balltwohp) as GameObject;
         a.transform.position = pos;
 
     }
@@ -61,6 +83,24 @@ public class PowerUpSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(respawnTime3split);
             spawnCore3split();
+        }
+    }
+
+    IEnumerator powerup1HP()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(respawnTimeonehp);
+            spawn1HP();
+        }
+    }
+
+    IEnumerator powerup2HP()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(respawnTimetwohp);
+            spawn2HP();
         }
     }
 }
