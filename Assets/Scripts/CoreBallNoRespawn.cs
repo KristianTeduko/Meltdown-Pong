@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CoreBall : MonoBehaviour
+public class CoreBallNoRespawn : MonoBehaviour
 {
     public float Speed = 1f;
     public Rigidbody2D PlayerRigidbod2D;
@@ -19,7 +19,7 @@ public class CoreBall : MonoBehaviour
 
     int randomDirectionNumber;
 
-    int[] directions = {40, 140, 220, 320}; // table for the ball directions
+    int[] directions = { 40, 140, 220, 320 }; // table for the ball directions
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,30 +49,21 @@ public class CoreBall : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Only randomize on walls (optional)
         if (collision.collider.CompareTag("Walls"))
         {
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
-            // Add small random angle
+            // Add a small random angle (degrees)
             float randomAngle = Random.Range(-10f, 30f);
+
+            // Rotate the velocity vector
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // --- NEW: Prevent straight up/down movement ---
-            float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
-
-            // Clamp away from vertical (90° and 270°)
-            if (Mathf.Abs(angle) > 75f && Mathf.Abs(angle) < 105f)
-            {
-                // Push angle slightly toward horizontal
-                float sign = Mathf.Sign(angle);
-                angle = 75f * sign;
-                v = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-            }
-
             // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
-        }
+            PlayerRigidbod2D.linearVelocity = v.normalized * PlayerRigidbod2D.linearVelocity.magnitude;
 
+        }
         if (collision.transform.tag == "Walls")
         {
             Debug.Log("osumaoli hyvä");
@@ -81,9 +72,8 @@ public class CoreBall : MonoBehaviour
         if (collision.transform.tag == "KillZone")
         {
             Debug.Log("osumaoli hyväFREEZEDOWN");
-            lifeSystem.LoseOneLife();
+            lifeSystem.LoseTwoLifes();
             lifeSystem.NoLifesCheckFreezedown();
-            coreRespawner.spawnCore();
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(gameObject, 0);
@@ -92,13 +82,12 @@ public class CoreBall : MonoBehaviour
         if (collision.transform.tag == "KillZone2")
         {
             Debug.Log("osumaoli hyväMELTDOWN");
-            lifeSystem.LoseOneLife();
+            lifeSystem.LoseTwoLifes();
             lifeSystem.NoLifesCheckMeltdown();
-            coreRespawner.spawnCore();
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(gameObject, 0);
-            
+
         }
     }
 

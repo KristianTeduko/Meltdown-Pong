@@ -1781,10 +1781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93229074e569fc047b1ae54083ef1426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
-  ballsplittwo: {fileID: 3140999685387080474, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
-  ballsplitthree: {fileID: 3140999685387080474, guid: 85dd9d59563bed04f99fdefe41723cbc, type: 3}
-  respawnTime2split: 30
-  respawnTime3split: 40
+  CoreBallPrefab: {fileID: 3140999685387080474, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
+  respawnTime: 5
 --- !u!4 &561568422
 Transform:
   m_ObjectHideFlags: 0
@@ -3377,10 +3375,6 @@ PrefabInstance:
       value: Circle
       objectReference: {fileID: 0}
     - target: {fileID: 4614428520850656470, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
-      propertyPath: Speed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614428520850656470, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
       propertyPath: respawnTime
       value: 20
       objectReference: {fileID: 0}
@@ -3435,10 +3429,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3140999685387080474, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 8071732721554436634}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
 --- !u!1001 &4257553138979149498
 PrefabInstance:
@@ -3517,25 +3508,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4c54e99ab95e8a4a8b23d56f3581b43, type: 3}
---- !u!1 &8071732721554436632 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3140999685387080474, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
-  m_PrefabInstance: {fileID: 3465425568402018635}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8071732721554436634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8071732721554436632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5448b572e27772c439d77c66566ef7e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PowerUpDestroyOwnself
-  PlayerRigidbod2D: {fileID: 0}
-  death: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
