@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 
 public class LifeSystem : MonoBehaviour
 {
 
-    public int Lifes = 3;
+    public int Lifes;
+    public TextMeshProUGUI LifeUI;
+
 
     GameController gameController;
 
@@ -17,11 +20,19 @@ public class LifeSystem : MonoBehaviour
         Lifes += 1;
     }
 
+    public void LoseTwoLifes()
+    {
+        Lifes -= 2;
+    }
+
     public void GainTwoLifes()
     {
         Lifes += 2;
     }
-
+    public void ResetLifes()
+    {
+        Lifes = 10;
+    }
 
     public void NoLifesCheckMeltdown()
     {
@@ -56,6 +67,6 @@ public class LifeSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        LifeUI.text = Lifes.ToString();
     }
 }

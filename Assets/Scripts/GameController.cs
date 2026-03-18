@@ -3,11 +3,15 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    //public GameObject Win;
+    public LifeSystem LifeSystem;
+
     //public GameObject Pause;
+    //public GameObject Play;
+    public GameObject MainMenu;
+    public GameObject FrozenDown;
+    public GameObject MeltedDown;
+
     //public GameObject Lose;
-    //public GameObject FrozenDown;
-    //public GameObject MeltedDown;
 
 
     enum gamestate
@@ -15,7 +19,8 @@ public class GameController : MonoBehaviour
         playing,
         pause,
         freezedown,
-        meltdown
+        meltdown,
+        mainmenu
     }
 
     gamestate currentstate = gamestate.playing;
@@ -24,6 +29,8 @@ public class GameController : MonoBehaviour
     public void PlayState()
     {
         StateControl(gamestate.playing);
+        LifeSystem.ResetLifes();
+
 
     }
 
@@ -38,20 +45,23 @@ public class GameController : MonoBehaviour
     }
     void Start()
     {
+        StateControl(gamestate.mainmenu);
+    }
+
+    public void startPlay()
+    {
         StateControl(gamestate.playing);
+        LifeSystem.ResetLifes();
     }
 
     public void freezedownGameOver()
     {
         StateControl(gamestate.freezedown);
-
-
     }
+
     public void meltdownGameOver()
     {
         StateControl(gamestate.meltdown);
-
-
     }
 
     public void pauseState()
@@ -69,25 +79,36 @@ public class GameController : MonoBehaviour
 
 
             case gamestate.playing:
-                //Pause.SetActive(false);
+                MainMenu.SetActive(false);
+                FrozenDown.SetActive(false);
+                MeltedDown.SetActive(false);
                 Time.timeScale = 1f;
-                break;;
+
+                break;
 
             case gamestate.pause:
-                //Pause.SetActive(true);
+                MainMenu.SetActive(true);
                 Time.timeScale = 0f;
 
                 break;
 
 
             case gamestate.freezedown:
-                //Lose.SetActive(true);
+                FrozenDown.SetActive(true);
                 Time.timeScale = 0f;
 
                 break;
 
             case gamestate.meltdown:
-                //Lose.SetActive(true);
+                MeltedDown.SetActive(true);
+                Time.timeScale = 0f;
+
+                break;
+
+            case gamestate.mainmenu:
+                MainMenu.SetActive(true);
+                FrozenDown.SetActive(false);
+                MeltedDown.SetActive(false);
                 Time.timeScale = 0f;
 
                 break;

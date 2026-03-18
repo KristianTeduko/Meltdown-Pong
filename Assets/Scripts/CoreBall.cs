@@ -47,65 +47,35 @@ public class CoreBall : MonoBehaviour
         PlayerRigidbod2D.AddForce(direction, ForceMode2D.Impulse);
     }
 
-
-
-
-    private int lastDirection = -1;
-
-    //public void RandomBallMovement()
-    //{
-    //    int newDirection;
-
-    //    // reroll until direction is different from last
-    //    do
-    //    {
-    //        newDirection = Random.Range(0, directions.Length);
-    //    }
-    //    while (newDirection == lastDirection);
-
-    //    lastDirection = newDirection;
-
-    //    ballRotation = directions[newDirection];
-
-    //    Vector2 direction = Quaternion.Euler(0, 0, ballRotation) * Vector2.right;
-
-    //    // 90° rotation
-    //    Vector2 perpendicular = new Vector2(-direction.y, -direction.x);
-
-    //    PlayerRigidbod2D.AddForce(perpendicular * Speed, ForceMode2D.Impulse);
-    //}
-
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Only randomize on walls (optional)
         if (collision.collider.CompareTag("Walls"))
         {
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
-            // Add a small random angle (degrees)
-            float randomAngle = Random.Range(-12f, 12f);
-
-            // Rotate the velocity vector
+            // Add small random angle
+            float randomAngle = Random.Range(-10f, 30f);
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * PlayerRigidbod2D.linearVelocity.magnitude;
+            // --- NEW: Prevent straight up/down movement ---
+            float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
 
-            if (Mathf.Abs(PlayerRigidbod2D.linearVelocity.x) < 0.2f)
+            // Clamp away from vertical (90° and 270°)
+            if (Mathf.Abs(angle) > 75f && Mathf.Abs(angle) < 105f)
             {
-                PlayerRigidbod2D.linearVelocity = new Vector2(
-                    Mathf.Sign(PlayerRigidbod2D.linearVelocity.x) * 0.2f,
-                    PlayerRigidbod2D.linearVelocity.y
-                );
+                // Push angle slightly toward horizontal
+                float sign = Mathf.Sign(angle);
+                angle = 75f * sign;
+                v = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
             }
-            
+
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
         }
+
         if (collision.transform.tag == "Walls")
         {
             Debug.Log("osumaoli hyvä");
-            //RandomBallMovement();
-
         }
 
         if (collision.transform.tag == "KillZone")
@@ -116,7 +86,7 @@ public class CoreBall : MonoBehaviour
             coreRespawner.spawnCore();
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 0);
         }
 
         if (collision.transform.tag == "KillZone2")
@@ -127,7 +97,7 @@ public class CoreBall : MonoBehaviour
             coreRespawner.spawnCore();
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 0);
             
         }
     }
@@ -141,7 +111,7 @@ public class CoreBall : MonoBehaviour
     }
     void FixedUpdate()
     {
-        PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed;
+        PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
     }
 
 }
