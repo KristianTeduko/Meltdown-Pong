@@ -2220,8 +2220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
   ballsplittwo: {fileID: 3140999685387080474, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
   ballsplitthree: {fileID: 3140999685387080474, guid: 85dd9d59563bed04f99fdefe41723cbc, type: 3}
-  respawnTime2split: 30
-  respawnTime3split: 40
+  respawnTime2split: 3
+  respawnTime3split: 5
 --- !u!4 &561568422
 Transform:
   m_ObjectHideFlags: 0

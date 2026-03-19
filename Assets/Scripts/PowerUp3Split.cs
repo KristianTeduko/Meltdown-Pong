@@ -27,6 +27,9 @@ public class PowerUp3Split : MonoBehaviour
             spawnCore();
             spawnCore();
 
+            // play audio
+            AudioSource.PlayClipAtPoint(negasplitFX, transform.position);
+
             Debug.Log("osumaoli IHAN HUONO");
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
@@ -55,10 +58,4 @@ public class PowerUp3Split : MonoBehaviour
         PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
     }
 
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // play audio
-        powerAS.PlayOneShot(negasplitFX);
-    }
 }
