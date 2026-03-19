@@ -464,7 +464,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -592,7 +592,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -840,7 +840,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 54a44d9afe469b1459aab61e987933b9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2485,7 +2485,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -3726,7 +3726,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -3842,7 +3842,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -4073,6 +4073,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1067878891}
     m_Modifications:
     - target: {fileID: 5390348091087050989, guid: 8821478788b4df949b9f95385df69163, type: 3}
+      propertyPath: ballBounce
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f2183e84d6b333489a2965bd0975fe6, type: 3}
+    - target: {fileID: 5390348091087050989, guid: 8821478788b4df949b9f95385df69163, type: 3}
       propertyPath: wallBounce
       value: 
       objectReference: {fileID: 8300000, guid: 5f1e1c677db18b64298094ac380b31ba, type: 3}
@@ -4160,6 +4164,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4614428520850656470, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
+      propertyPath: negasplitFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614428520850656470, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
       propertyPath: respawnTime
       value: 20
       objectReference: {fileID: 0}
@@ -4211,7 +4219,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8165486773153290663, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

@@ -12,6 +12,10 @@ public class CoreBallNoRespawn : MonoBehaviour
     public CoreRespawner coreRespawner;
     public LifeSystem lifeSystem;
 
+    // audio
+    public AudioClip ballBounce;
+    public AudioSource ballAS;
+
     int ballRotation;
 
     Vector2 movement;
@@ -27,7 +31,7 @@ public class CoreBallNoRespawn : MonoBehaviour
         gameController = FindFirstObjectByType<GameController>();
         coreRespawner = FindFirstObjectByType<CoreRespawner>();
         lifeSystem = FindFirstObjectByType<LifeSystem>();
-
+        ballAS = GetComponent<AudioSource>();
         Invoke("StartRandomBallMovement", 1);
 
     }
@@ -67,6 +71,10 @@ public class CoreBallNoRespawn : MonoBehaviour
         if (collision.transform.tag == "Walls")
         {
             Debug.Log("osumaoli hyvä");
+        }
+        if (collision.collider.CompareTag("CoreBall"))
+        {
+            ballAS.PlayOneShot(ballBounce);
         }
 
         if (collision.transform.tag == "KillZone")

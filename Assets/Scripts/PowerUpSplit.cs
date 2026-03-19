@@ -9,11 +9,14 @@ public class PowerUpSplit : MonoBehaviour
  
     public Rigidbody2D PlayerRigidbod2D;
 
+    public AudioClip negasplitFX;
+    public AudioSource powerAS;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
+        powerAS = GetComponent<AudioSource>();
     }
 
 
@@ -48,5 +51,10 @@ public class PowerUpSplit : MonoBehaviour
     void FixedUpdate()
     {
         PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // play audio
+        powerAS.PlayOneShot(negasplitFX);
     }
 }
