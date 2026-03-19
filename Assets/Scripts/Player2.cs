@@ -5,9 +5,14 @@ public class Players2 : MonoBehaviour
     public Rigidbody2D rb;
     public float speed = 7f;
 
+    // audio
+    public AudioClip paddleBounce;
+    public AudioSource Player2AS;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Player2AS = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,6 +25,11 @@ public class Players2 : MonoBehaviour
             move = -1f;
 
         rb.linearVelocity = new Vector2(0, move * speed);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player2AS.PlayOneShot(paddleBounce);
     }
 
 }
