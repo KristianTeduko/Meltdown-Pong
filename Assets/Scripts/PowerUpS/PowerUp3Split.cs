@@ -30,13 +30,14 @@ public class PowerUp3Split : MonoBehaviour
             Destroy(gameObject, 0);
         }
     }
-
+    
 
     public void spawnCore()
     {
-
+        
         GameObject a = Instantiate(CoreBallPrefab) as GameObject;
-        a.transform.position = Vector2.zero;
+        a.transform.position = transform.localPosition;
+        
 
     }
 

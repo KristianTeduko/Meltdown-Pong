@@ -28,7 +28,7 @@ public class PowerUpSpawner : MonoBehaviour
         StartCoroutine(powerupRandom3split());
         StartCoroutine(powerup1HP());
         StartCoroutine(powerup2HP());
-
+        
     }
     public void spawnCore2split()
     {

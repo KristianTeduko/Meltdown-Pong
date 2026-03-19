@@ -3,6 +3,7 @@ using UnityEngine;
 public class PowerUp1HP : MonoBehaviour
 {
     public float Speed = 0.5f;
+    public float respawnTime = 1.0f;
 
 
     public LifeSystem lifesystem;
