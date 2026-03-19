@@ -9,7 +9,6 @@ public class PowerUpSplit : MonoBehaviour
  
     public Rigidbody2D PlayerRigidbod2D;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,13 +29,6 @@ public class PowerUpSplit : MonoBehaviour
     }
 
 
-    public void spawnCore()
-    {
-
-        GameObject a = Instantiate(CoreBallPrefab) as GameObject;
-        a.transform.position = Vector2.zero;
-
-    }
 
 
     // Update is called once per frame
@@ -45,6 +37,11 @@ public class PowerUpSplit : MonoBehaviour
         
     }
 
+    public void spawnCore()
+    {
+        GameObject a = Instantiate(CoreBallPrefab) as GameObject;
+        a.transform.position = transform.localPosition;
+    }
     void FixedUpdate()
     {
         PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8815578475438103842}
   - component: {fileID: 973287626747464153}
   - component: {fileID: 6614428067289339230}
+  - component: {fileID: 8358028304625900618}
   - component: {fileID: 5537788192681032518}
-  - component: {fileID: 2689584021258700816}
   m_Layer: 0
-  m_Name: 3split
+  m_Name: 2HPball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3140999685387080474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.999, z: 0}
+  m_LocalPosition: {x: -0.40185, y: 0.48448, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9960785, g: 0.10196079, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.0715158, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,6 +130,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &8358028304625900618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140999685387080474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfc58139e71c03468f97c93834c5ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUp1HP
+  Speed: 0.5
+  lifesystem: {fileID: 0}
+  PlayerRigidbod2D: {fileID: 5537788192681032518}
 --- !u!50 &5537788192681032518
 Rigidbody2D:
   serializedVersion: 5
@@ -157,19 +172,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2689584021258700816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3140999685387080474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1293161da2cd0d3469c0fe1e38ababc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PowerUp3Split
-  Speed: 0.5
-  CoreBallPrefab: {fileID: 7001555442039854475, guid: 7547cdf6966565a41a49e3f7ff54e211, type: 3}
-  respawnTime: 1
-  PlayerRigidbod2D: {fileID: 5537788192681032518}
