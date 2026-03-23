@@ -10,6 +10,8 @@ TagManager:
   - CoreBall
   - PlayerUp
   - PlayerDown
+  - RandomWallDown
+  - RandomWallUp
   layers:
   - Default
   - TransparentFX

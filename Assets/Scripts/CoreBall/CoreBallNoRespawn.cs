@@ -11,6 +11,8 @@ public class CoreBallNoRespawn : MonoBehaviour
 
     public CoreRespawner coreRespawner;
     public LifeSystem lifeSystem;
+    public ScoreSystem scoreSystem;
+
 
     int ballRotation;
 
@@ -27,6 +29,8 @@ public class CoreBallNoRespawn : MonoBehaviour
         gameController = FindFirstObjectByType<GameController>();
         coreRespawner = FindFirstObjectByType<CoreRespawner>();
         lifeSystem = FindFirstObjectByType<LifeSystem>();
+        scoreSystem = FindFirstObjectByType<ScoreSystem>();
+
 
         Invoke("StartRandomBallMovement", 1);
 
@@ -51,10 +55,12 @@ public class CoreBallNoRespawn : MonoBehaviour
     {
         if (collision.collider.CompareTag("PlayerUp"))
         {
+            scoreSystem.GainOneScore();
+
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
             // Add small random angles
-            float randomAngle = 30f;
+            float randomAngle = 20f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
             // Keep speed constant
@@ -63,10 +69,12 @@ public class CoreBallNoRespawn : MonoBehaviour
 
         if (collision.collider.CompareTag("PlayerDown"))
         {
+            scoreSystem.GainOneScore();
+
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
             // Add small random angles
-            float randomAngle = -30f;
+            float randomAngle = -20f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
             // Keep speed constant
@@ -75,6 +83,9 @@ public class CoreBallNoRespawn : MonoBehaviour
 
         if (collision.collider.CompareTag("Walls"))
         {
+            scoreSystem.GainOneScore();
+
+            scoreSystem.GainOneScore();
 
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 

@@ -38,6 +38,7 @@ public class UIscript : MonoBehaviour
     public void StartGame()
     {
         gameController.PlayState();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 
