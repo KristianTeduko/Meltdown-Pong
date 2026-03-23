@@ -13,7 +13,10 @@ public class WallScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // play audio
-        wallAS.PlayOneShot(wallBounce);
+        if (collision.collider.CompareTag("CoreBall"))
+        {
+            // play audio
+            wallAS.PlayOneShot(wallBounce);
+        }
     }
 }

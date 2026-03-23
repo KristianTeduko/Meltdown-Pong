@@ -29,7 +29,11 @@ public class Players2 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Player2AS.PlayOneShot(paddleBounce);
+        if (collision.collider.CompareTag("CoreBall"))
+        {
+            // play audio
+            Player2AS.PlayOneShot(paddleBounce);
+        }
     }
 
 }

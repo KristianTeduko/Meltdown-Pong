@@ -25,8 +25,10 @@ public class PowerUpSplit : MonoBehaviour
         if (collision.transform.tag == "CoreBall")
         {
             spawnCore();
+            
             // play audio
             AudioSource.PlayClipAtPoint(negasplitFX, transform.position);
+
             Debug.Log("osumaoli IHAN HUONO");
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
