@@ -1,11 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Players : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float speed = 7f;
-
 
     // audio
     public AudioClip paddleBounce;
@@ -27,7 +25,6 @@ public class Players : MonoBehaviour
             move = -1f;
 
         rb.linearVelocity = new Vector2(0, move * speed);
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -38,6 +35,6 @@ public class Players : MonoBehaviour
             Player1AS.PlayOneShot(paddleBounce);
         }
     }
-        
+
 
 }
