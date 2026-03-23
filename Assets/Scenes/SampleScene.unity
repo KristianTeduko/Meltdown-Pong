@@ -971,7 +971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &407583568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1279,7 +1279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &529649277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1785,10 +1785,10 @@ MonoBehaviour:
   ballsplitthree: {fileID: 3140999685387080474, guid: 85dd9d59563bed04f99fdefe41723cbc, type: 3}
   ballonehp: {fileID: 1863780436}
   balltwohp: {fileID: 599206496}
-  respawnTime2split: 4
-  respawnTime3split: 3
-  respawnTimeonehp: 2
-  respawnTimetwohp: 1
+  respawnTime2split: 40
+  respawnTime3split: 30
+  respawnTimeonehp: 20
+  respawnTimetwohp: 10
 --- !u!4 &561568422
 Transform:
   m_ObjectHideFlags: 0
@@ -3154,7 +3154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1688225725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3455,6 +3455,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 3592162440420858724, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592162440420858724, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4614428520850656470, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
       propertyPath: Speed
       value: 0.5
@@ -3477,7 +3485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815578475438103842, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.999
+      value: 4.012
       objectReference: {fileID: 0}
     - target: {fileID: 8815578475438103842, guid: f8a87d4151f6e5340898089b4174873d, type: 3}
       propertyPath: m_LocalPosition.z
