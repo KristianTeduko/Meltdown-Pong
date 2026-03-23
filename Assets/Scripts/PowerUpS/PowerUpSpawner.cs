@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using System;
 
 public class PowerUpSpawner : MonoBehaviour
 {
@@ -12,23 +13,31 @@ public class PowerUpSpawner : MonoBehaviour
     public GameObject ballsplitthree;
     public GameObject ballonehp;
     public GameObject balltwohp;
-    public float respawnTime2split = 30.0f;
-    public float respawnTime3split = 40.0f;
-    public float respawnTimeonehp = 10f;
-    public float respawnTimetwohp = 15f;
+    public float respawnTime2split;
+    public float respawnTime3split;
+    public float respawnTimeonehp;
+    public float respawnTimetwohp;
+    Vector2 pos;
 
-    Vector2 pos = new Vector2(0f, 4f);
 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         StartCoroutine(powerupRandom2split());
         StartCoroutine(powerupRandom3split());
         StartCoroutine(powerup1HP());
         StartCoroutine(powerup2HP());
-        
+    }
+    void Update()
+    {
+        //Invoke("spawnCore", 1);
+        //five hundred balls
+        int month = UnityEngine.Random.Range(-3, 3);
+        pos = new Vector2(month, 4f);
+
     }
     public void spawnCore2split()
     {
@@ -62,12 +71,6 @@ public class PowerUpSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        //Invoke("spawnCore", 1);
-        //five hundred balls
-
-    }
     IEnumerator powerupRandom2split()
     {
         while (true)
