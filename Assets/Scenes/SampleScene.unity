@@ -426,6 +426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Players2
   rb: {fileID: 159791968}
   speed: 8
+  paddleBounce: {fileID: 0}
+  Player2AS: {fileID: 0}
 --- !u!50 &159791968 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3515449355665299769, guid: f4c54e99ab95e8a4a8b23d56f3581b43, type: 3}
