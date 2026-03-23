@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -7,7 +8,6 @@ public class GameController : MonoBehaviour
 
     //public GameObject Pause;
     //public GameObject Play;
-    public GameObject MainMenu;
     public GameObject FrozenDown;
     public GameObject MeltedDown;
 
@@ -19,8 +19,7 @@ public class GameController : MonoBehaviour
         playing,
         pause,
         freezedown,
-        meltdown,
-        mainmenu
+        meltdown
     }
 
     gamestate currentstate = gamestate.playing;
@@ -45,23 +44,27 @@ public class GameController : MonoBehaviour
     }
     void Start()
     {
-        StateControl(gamestate.mainmenu);
+        startPlay();
     }
 
     public void startPlay()
     {
         StateControl(gamestate.playing);
+
         LifeSystem.ResetLifes();
+
     }
 
     public void freezedownGameOver()
     {
         StateControl(gamestate.freezedown);
+
     }
 
     public void meltdownGameOver()
     {
         StateControl(gamestate.meltdown);
+
     }
 
     public void pauseState()
@@ -79,7 +82,6 @@ public class GameController : MonoBehaviour
 
 
             case gamestate.playing:
-                MainMenu.SetActive(false);
                 FrozenDown.SetActive(false);
                 MeltedDown.SetActive(false);
                 Time.timeScale = 1f;
@@ -87,7 +89,6 @@ public class GameController : MonoBehaviour
                 break;
 
             case gamestate.pause:
-                MainMenu.SetActive(true);
                 Time.timeScale = 0f;
 
                 break;
@@ -101,14 +102,6 @@ public class GameController : MonoBehaviour
 
             case gamestate.meltdown:
                 MeltedDown.SetActive(true);
-                Time.timeScale = 0f;
-
-                break;
-
-            case gamestate.mainmenu:
-                MainMenu.SetActive(true);
-                FrozenDown.SetActive(false);
-                MeltedDown.SetActive(false);
                 Time.timeScale = 0f;
 
                 break;

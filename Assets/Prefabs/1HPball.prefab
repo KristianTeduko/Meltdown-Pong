@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 973287626747464153}
   - component: {fileID: 6614428067289339230}
   - component: {fileID: 5537788192681032518}
-  - component: {fileID: 2689584021258700816}
+  - component: {fileID: 8358028304625900618}
   m_Layer: 0
-  m_Name: 3split
+  m_Name: 1HPball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9960785, g: 0.10196079, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.7132075, b: 0.35379583, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2689584021258700816
+--- !u!114 &8358028304625900618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,10 +166,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3140999685387080474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1293161da2cd0d3469c0fe1e38ababc4, type: 3}
+  m_Script: {fileID: 11500000, guid: edfc58139e71c03468f97c93834c5ced, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PowerUp3Split
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUp1HP
   Speed: 0.5
-  CoreBallPrefab: {fileID: 7001555442039854475, guid: 7547cdf6966565a41a49e3f7ff54e211, type: 3}
-  respawnTime: 1
+  lifesystem: {fileID: 0}
   PlayerRigidbod2D: {fileID: 5537788192681032518}

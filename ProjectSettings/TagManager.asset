@@ -8,6 +8,10 @@ TagManager:
   - KillZone
   - KillZone2
   - CoreBall
+  - PlayerUp
+  - PlayerDown
+  - RandomWallDown
+  - RandomWallUp
   layers:
   - Default
   - TransparentFX
