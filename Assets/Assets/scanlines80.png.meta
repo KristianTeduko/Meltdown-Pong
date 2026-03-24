@@ -1,31 +1,10 @@
 fileFormatVersion: 2
-guid: f44df61ceb1b6824383d637a539f8741
+guid: 2135c8b5aa804704c97502afb7036e9c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2283781662527957010
-    second: MegaUp spritesheet_0
-  - first:
-      213: -286962129635130538
-    second: MegaUp spritesheet_1
-  - first:
-      213: 1041348904796925003
-    second: MegaUp spritesheet_2
-  - first:
-      213: 8972170409048458732
-    second: MegaUp spritesheet_3
-  - first:
-      213: -7416274323718027002
-    second: MegaUp spritesheet_4
-  - first:
-      213: -7724399117143577803
-    second: MegaUp spritesheet_5
-  - first:
-      213: 4221513583778424230
-    second: MegaUp spritesheet_6
-  - first:
-      213: -1328835853615785874
-    second: MegaUp spritesheet_7
+      213: 2685660427123331575
+    second: scanlines80_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 70
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -173,89 +152,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MegaUp spritesheet_4
+      name: scanlines80_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 6
-        width: 13
-        height: 13
+        x: 0
+        y: 0
+        width: 181
+        height: 135
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 609cfe1bbc9141990800000000000000
-      internalID: -7416274323718027002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MegaUp spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 6
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 53be057bdeb6dc490800000000000000
-      internalID: -7724399117143577803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MegaUp spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 6
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6a56997ec34d59a30800000000000000
-      internalID: 4221513583778424230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MegaUp spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 6
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e689d64e4d60f8de0800000000000000
-      internalID: -1328835853615785874
+      spriteID: 7f19202ede1654520800000000000000
+      internalID: 2685660427123331575
       vertices: []
       indices: 
       edges: []
@@ -264,7 +177,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 010a3f38730fac144bd6e83c84cbbd9b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -274,14 +187,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MegaUp spritesheet_0: -2283781662527957010
-      MegaUp spritesheet_1: -286962129635130538
-      MegaUp spritesheet_2: 1041348904796925003
-      MegaUp spritesheet_3: 8972170409048458732
-      MegaUp spritesheet_4: -7416274323718027002
-      MegaUp spritesheet_5: -7724399117143577803
-      MegaUp spritesheet_6: 4221513583778424230
-      MegaUp spritesheet_7: -1328835853615785874
+      scanlines80_0: 2685660427123331575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
