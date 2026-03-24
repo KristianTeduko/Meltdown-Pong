@@ -55,6 +55,7 @@ public class UIscript : MonoBehaviour
 
     public void BackCredits()
     {
+        Debug.Log("back to menu button pressed");
         SceneManager.LoadScene("Main Menu");
 
     }
