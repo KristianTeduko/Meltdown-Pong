@@ -9,10 +9,13 @@ public class PowerUpSplit : MonoBehaviour
  
     public Rigidbody2D PlayerRigidbod2D;
 
+    public AudioClip negasplitFX;
+    public AudioSource powerAS;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        powerAS = GetComponent<AudioSource>();
     }
 
 
@@ -21,6 +24,10 @@ public class PowerUpSplit : MonoBehaviour
         if (collision.transform.tag == "CoreBall")
         {
             spawnCore();
+
+            // play audio
+            AudioSource.PlayClipAtPoint(negasplitFX, transform.position);
+
             Debug.Log("osumaoli IHAN HUONO");
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());

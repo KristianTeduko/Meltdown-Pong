@@ -2328,10 +2328,6 @@ PrefabInstance:
       value: 1HPball
       objectReference: {fileID: 0}
     - target: {fileID: 8358028304625900618, guid: 1f0793a67b706a34bbd5379686e8fcca, type: 3}
-      propertyPath: Speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8358028304625900618, guid: 1f0793a67b706a34bbd5379686e8fcca, type: 3}
       propertyPath: lifesystem
       value: 
       objectReference: {fileID: 1651090780}
@@ -4377,10 +4373,6 @@ PrefabInstance:
     - target: {fileID: 3140999685387080474, guid: 5db102a530d2eb94e9fc06dbb6d76f11, type: 3}
       propertyPath: m_Name
       value: 2HPball
-      objectReference: {fileID: 0}
-    - target: {fileID: 8358028304625900618, guid: 5db102a530d2eb94e9fc06dbb6d76f11, type: 3}
-      propertyPath: Speed
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8358028304625900618, guid: 5db102a530d2eb94e9fc06dbb6d76f11, type: 3}
       propertyPath: lifesystem
