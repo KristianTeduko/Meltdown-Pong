@@ -27,7 +27,8 @@ public class LifeSystem : MonoBehaviour
 
     public void GainTwoLifes()
     {
-        Lifes += 2;
+        Lifes++;
+        Lifes++;
     }
     public void ResetLifes()
     {

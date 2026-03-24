@@ -2956,6 +2956,7 @@ GameObject:
   - component: {fileID: 1220164956}
   - component: {fileID: 1220164958}
   - component: {fileID: 1220164957}
+  - component: {fileID: 1220164959}
   m_Layer: 0
   m_Name: nappi sprite_0
   m_TagString: Untagged
@@ -3059,6 +3060,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1220164959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220164955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea7557bb9cc7f6409939c3d9a10906b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonBlinkScript
+  lifeSystem: {fileID: 0}
+  animator: {fileID: 0}
+  blinkThreshold: 0
 --- !u!1 &1247304431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3354251178334744541, guid: 3fc9acc0d9d03214b85480091276c0a0, type: 3}
