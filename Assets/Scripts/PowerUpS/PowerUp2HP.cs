@@ -6,10 +6,14 @@ public class PowerUp2HP : MonoBehaviour
 
     public LifeSystem lifesystem;
     public Rigidbody2D PlayerRigidbod2D;
+
+    public AudioClip posiupFX;
+    public AudioSource powerAS;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        powerAS = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +21,10 @@ public class PowerUp2HP : MonoBehaviour
         if (collision.transform.tag == "CoreBall")
         {
             lifesystem.GainTwoLifes();
+
+            // play audio
+            AudioSource.PlayClipAtPoint(posiupFX, transform.position);
+
             Debug.Log("osumaoli IHAN hyvä");
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
