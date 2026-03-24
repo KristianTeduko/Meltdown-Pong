@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 280, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7420000813976977082}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_Position: {x: 280, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5522596000166821324}
     m_Position: {x: 280, y: 300, z: 0}
@@ -167,8 +167,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: nappiBlink 0
-  m_Speed: 1
+  m_Name: mittariAnim
+  m_Speed: 9
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
