@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PowerUp3Split : MonoBehaviour
 {
@@ -35,14 +34,14 @@ public class PowerUp3Split : MonoBehaviour
             Destroy(gameObject, 0);
         }
     }
-    
+
 
     public void spawnCore()
     {
-        
+
         GameObject a = Instantiate(CoreBallPrefab) as GameObject;
         a.transform.position = transform.localPosition;
-        
+
 
     }
 

@@ -1,12 +1,11 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PowerUpSplit : MonoBehaviour
 {
     public float Speed = 0.5f;
     public GameObject CoreBallPrefab;
     public float respawnTime = 1.0f;
- 
+
     public Rigidbody2D PlayerRigidbod2D;
 
     public AudioClip negasplitFX;
@@ -41,7 +40,7 @@ public class PowerUpSplit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void spawnCore()
