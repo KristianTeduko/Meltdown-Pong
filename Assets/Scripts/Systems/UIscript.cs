@@ -41,6 +41,23 @@ public class UIscript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+
+    }
+
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
+
+    }
+
+    public void BackCredits()
+    {
+        SceneManager.LoadScene("Main Menu");
+
+    }
 
     public void StartGameScene(string sceneName)
     {
