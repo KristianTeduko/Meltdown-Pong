@@ -2016,10 +2016,10 @@ MonoBehaviour:
   ballsplitthree: {fileID: 3140999685387080474, guid: 85dd9d59563bed04f99fdefe41723cbc, type: 3}
   ballonehp: {fileID: 1863780436}
   balltwohp: {fileID: 599206496}
-  respawnTime2split: 99
-  respawnTime3split: 99
-  respawnTimeonehp: 99
-  respawnTimetwohp: 1
+  respawnTime2split: 7
+  respawnTime3split: 12
+  respawnTimeonehp: 2
+  respawnTimetwohp: 14
 --- !u!4 &561568422
 Transform:
   m_ObjectHideFlags: 0
