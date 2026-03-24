@@ -11,6 +11,8 @@ public class CoreBallNoRespawn : MonoBehaviour
 
     public CoreRespawner coreRespawner;
     public LifeSystem lifeSystem;
+    public ScoreSystem scoreSystem;
+
 
     int ballRotation;
 
@@ -27,6 +29,8 @@ public class CoreBallNoRespawn : MonoBehaviour
         gameController = FindFirstObjectByType<GameController>();
         coreRespawner = FindFirstObjectByType<CoreRespawner>();
         lifeSystem = FindFirstObjectByType<LifeSystem>();
+        scoreSystem = FindFirstObjectByType<ScoreSystem>();
+
 
         Invoke("StartRandomBallMovement", 1);
 
@@ -49,24 +53,48 @@ public class CoreBallNoRespawn : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Only randomize on walls (optional)
-        if (collision.collider.CompareTag("Walls"))
+        if (collision.collider.CompareTag("PlayerUp"))
         {
+            scoreSystem.GainOneScore();
+
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
-            // Add a small random angle (degrees)
-            float randomAngle = Random.Range(-10f, 30f);
-
-            // Rotate the velocity vector
+            // Add small random angles
+            float randomAngle = 20f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
             // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * PlayerRigidbod2D.linearVelocity.magnitude;
-
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
         }
-        if (collision.transform.tag == "Walls")
+
+        if (collision.collider.CompareTag("PlayerDown"))
         {
-            Debug.Log("osumaoli hyvä");
+            scoreSystem.GainOneScore();
+
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add small random angles
+            float randomAngle = -20f;
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
+
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+        }
+
+        if (collision.collider.CompareTag("Walls"))
+        {
+            scoreSystem.GainOneScore();
+
+            scoreSystem.GainOneScore();
+
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add small random angles
+            float randomAngle = 0f;
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
+
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
         }
 
         if (collision.transform.tag == "KillZone")
@@ -101,6 +129,7 @@ public class CoreBallNoRespawn : MonoBehaviour
     void FixedUpdate()
     {
         PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
+
     }
 
 }
