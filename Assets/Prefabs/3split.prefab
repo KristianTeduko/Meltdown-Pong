@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1293161da2cd0d3469c0fe1e38ababc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUp3Split
-  Speed: 0.5
+  Speed: 1
   CoreBallPrefab: {fileID: 7001555442039854475, guid: 7547cdf6966565a41a49e3f7ff54e211, type: 3}
   respawnTime: 1
   PlayerRigidbod2D: {fileID: 5537788192681032518}

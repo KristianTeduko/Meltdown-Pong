@@ -1,9 +1,10 @@
 using NUnit.Framework.Constraints;
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-using System;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PowerUpSpawner : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PowerUpSpawner : MonoBehaviour
     public float respawnTime3split;
     public float respawnTimeonehp;
     public float respawnTimetwohp;
+    float timer;
     Vector2 pos;
 
 
@@ -35,8 +37,49 @@ public class PowerUpSpawner : MonoBehaviour
     {
         //Invoke("spawnCore", 1);
         //five hundred balls
+
+        if (respawnTime2split <= 2)
+        {
+            respawnTime2split = 2f;
+        }
+
+        if (respawnTime3split <= 2)
+        {
+            respawnTime3split = 2f;
+        }
+
+        if (respawnTimetwohp <= 1)
+        {
+            respawnTimetwohp = 0.1f;
+        }
+
+        if (respawnTimeonehp <= 1)
+        {
+            respawnTimeonehp = 0.1f;
+        }
+
+
+        if (timer < 20)
+        {
+            timer = timer + Time.deltaTime;
+        }
+        //else if (timer < 30)
+        //{
+        //}
+        else
+        {
+            timer = 0;
+
+            respawnTimetwohp += 1f;
+            respawnTimeonehp += 1f;
+            respawnTime2split -= 2f;
+            respawnTime3split -= 2f;
+
+        }
+
+
         int month = UnityEngine.Random.Range(-3, 3);
-        pos = new Vector2(month, 4f);
+        pos = new Vector2(month, 5f);
 
     }
     public void spawnCore2split()

@@ -104,12 +104,14 @@ public class GameController : MonoBehaviour
 
 
             case gamestate.freezedown:
+                MeltedDown.SetActive(false);
                 FrozenDown.SetActive(true);
                 Time.timeScale = 0f;
 
                 break;
 
             case gamestate.meltdown:
+                FrozenDown.SetActive(false);
                 MeltedDown.SetActive(true);
                 Time.timeScale = 0f;
 

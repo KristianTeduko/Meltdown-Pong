@@ -88,7 +88,7 @@ public class CoreBall : MonoBehaviour
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
             // Add small random angles
-            float randomAngle = 20f;
+            float randomAngle = 15f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
             // Keep speed constant
@@ -102,7 +102,7 @@ public class CoreBall : MonoBehaviour
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
             // Add small random angles
-            float randomAngle = -20f;
+            float randomAngle = -15f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
             // Keep speed constant
