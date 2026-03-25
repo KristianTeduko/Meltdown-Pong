@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PowerUp3Split : MonoBehaviour
 {
@@ -9,11 +8,13 @@ public class PowerUp3Split : MonoBehaviour
 
     public Rigidbody2D PlayerRigidbod2D;
 
+    public AudioClip negasplitFX;
+    public AudioSource powerAS;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        powerAS = GetComponent<AudioSource>();
     }
 
 
@@ -24,20 +25,23 @@ public class PowerUp3Split : MonoBehaviour
             spawnCore();
             spawnCore();
 
+            // play audio
+            AudioSource.PlayClipAtPoint(negasplitFX, transform.position);
+
             Debug.Log("osumaoli IHAN HUONO");
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
             Destroy(gameObject, 0);
         }
     }
-    
+
 
     public void spawnCore()
     {
-        
+
         GameObject a = Instantiate(CoreBallPrefab) as GameObject;
         a.transform.position = transform.localPosition;
-        
+
 
     }
 
@@ -52,4 +56,5 @@ public class PowerUp3Split : MonoBehaviour
     {
         PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
     }
+
 }

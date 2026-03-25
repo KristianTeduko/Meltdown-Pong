@@ -11,6 +11,7 @@ public class CoreBall : MonoBehaviour
 
     public CoreRespawner coreRespawner;
     public LifeSystem lifeSystem;
+    public ScoreSystem scoreSystem;
 
     int ballRotation;
 
@@ -27,6 +28,7 @@ public class CoreBall : MonoBehaviour
         gameController = FindFirstObjectByType<GameController>();
         coreRespawner = FindFirstObjectByType<CoreRespawner>();
         lifeSystem = FindFirstObjectByType<LifeSystem>();
+        scoreSystem = FindFirstObjectByType<ScoreSystem>();
 
         Invoke("StartRandomBallMovement", 1);
 
@@ -49,33 +51,77 @@ public class CoreBall : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Walls"))
+        if (collision.collider.CompareTag("RandomWallUp"))
         {
+
             Vector2 v = PlayerRigidbod2D.linearVelocity;
 
-            // Add small random angle
-            float randomAngle = Random.Range(-10f, 30f);
+            // Add small random angles
+            float randomAngle = 20f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // --- NEW: Prevent straight up/down movement ---
-            float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
 
-            // Clamp away from vertical (90° and 270°)
-            if (Mathf.Abs(angle) > 75f && Mathf.Abs(angle) < 105f)
-            {
-                // Push angle slightly toward horizontal
-                float sign = Mathf.Sign(angle);
-                angle = 75f * sign;
-                v = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-            }
+        }
+
+        if (collision.collider.CompareTag("RandomWallDown"))
+        {
+
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add small random angles
+            float randomAngle = 20f;
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
+
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+
+        }
+
+
+
+        if (collision.collider.CompareTag("PlayerUp"))
+        {
+            scoreSystem.GainOneScore();
+
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add small random angles
+            float randomAngle = 20f;
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
 
             // Keep speed constant
             PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
         }
 
-        if (collision.transform.tag == "Walls")
+        if (collision.collider.CompareTag("PlayerDown"))
         {
-            Debug.Log("osumaoli hyvä");
+            scoreSystem.GainOneScore();
+
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add small random angles
+            float randomAngle = -20f;
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
+
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+        }
+
+        if (collision.collider.CompareTag("Walls"))
+        {
+
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add small random angles
+            float randomAngle = 0f;
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
+
+            // Keep speed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+            
+            scoreSystem.GainOneScore();
         }
 
         if (collision.transform.tag == "KillZone")

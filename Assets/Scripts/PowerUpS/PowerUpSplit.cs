@@ -1,18 +1,20 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PowerUpSplit : MonoBehaviour
 {
     public float Speed = 0.5f;
     public GameObject CoreBallPrefab;
     public float respawnTime = 1.0f;
- 
+
     public Rigidbody2D PlayerRigidbod2D;
+
+    public AudioClip negasplitFX;
+    public AudioSource powerAS;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        powerAS = GetComponent<AudioSource>();
     }
 
 
@@ -21,6 +23,10 @@ public class PowerUpSplit : MonoBehaviour
         if (collision.transform.tag == "CoreBall")
         {
             spawnCore();
+
+            // play audio
+            AudioSource.PlayClipAtPoint(negasplitFX, transform.position);
+
             Debug.Log("osumaoli IHAN HUONO");
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
@@ -34,7 +40,7 @@ public class PowerUpSplit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void spawnCore()
