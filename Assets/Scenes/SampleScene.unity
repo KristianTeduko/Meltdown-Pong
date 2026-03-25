@@ -4386,6 +4386,7 @@ MonoBehaviour:
   LifeSystem: {fileID: 1651090780}
   menuMusic: {fileID: 8300000, guid: c691a2f747de5d346865ad62edea0da1, type: 3}
   gameMusic: {fileID: 8300000, guid: 54a44d9afe469b1459aab61e987933b9, type: 3}
+  endMusic: {fileID: 8300000, guid: a63afbfa01710c54095b631054329e7e, type: 3}
   bgmusicAS: {fileID: 1152428635}
   FrozenDown: {fileID: 1688225724}
   MeltedDown: {fileID: 407583567}

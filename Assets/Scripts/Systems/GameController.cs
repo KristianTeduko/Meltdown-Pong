@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     // music
     public AudioClip menuMusic;
     public AudioClip gameMusic;
+    public AudioClip endMusic;
 
     public AudioSource bgmusicAS;
 
@@ -106,6 +107,8 @@ public class GameController : MonoBehaviour
             case gamestate.freezedown:
                 MeltedDown.SetActive(false);
                 FrozenDown.SetActive(true);
+                bgmusicAS.clip = endMusic;
+                bgmusicAS.Play();
                 Time.timeScale = 0f;
 
                 break;
@@ -113,6 +116,8 @@ public class GameController : MonoBehaviour
             case gamestate.meltdown:
                 FrozenDown.SetActive(false);
                 MeltedDown.SetActive(true);
+                bgmusicAS.clip = endMusic;
+                bgmusicAS.Play();
                 Time.timeScale = 0f;
 
                 break;
