@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 80086782}
   - component: {fileID: 80086781}
   - component: {fileID: 80086780}
+  - component: {fileID: 80086784}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -223,6 +224,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &80086784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80086779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f3b07c6053aa24c8063c9d3fc8b518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PremiseScript
 --- !u!1 &567391409
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,9 +600,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Core is in critical condition, take on the manual control and keep the
-    core from melting by regulating it's temperature. System administrator might
-    will send you coolant cells that may restore your lives.
+  m_text: Core is in critical condition. Take on the manual controls and keep the
+    core from melting by regulating it's temperature. System administrator will send
+    you coolant cells that may restore your lives.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97b9658dcb0747944bb160a4b56a2da5, type: 2}
   m_sharedMaterial: {fileID: 4483452930411304881, guid: 97b9658dcb0747944bb160a4b56a2da5, type: 2}
@@ -726,7 +739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: otsikko
+  m_text: '[ Meltdown Pong ]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97b9658dcb0747944bb160a4b56a2da5, type: 2}
   m_sharedMaterial: {fileID: 4483452930411304881, guid: 97b9658dcb0747944bb160a4b56a2da5, type: 2}
@@ -792,7 +805,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.432261, z: 0, w: 0.21411681}
+  m_margin: {x: -40.481953, y: 0.432261, z: -40.80859, w: 0.21411681}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
