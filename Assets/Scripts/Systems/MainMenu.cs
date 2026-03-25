@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void startPlay()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("PremiseScreen");
         Debug.Log("podpsfighsdfgpin");
         
     }
