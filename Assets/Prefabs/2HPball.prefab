@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 973287626747464153}
   - component: {fileID: 6614428067289339230}
   - component: {fileID: 5537788192681032518}
-  - component: {fileID: 8358028304625900618}
+  - component: {fileID: -861523364374893766}
   - component: {fileID: 6488058787801132348}
   m_Layer: 0
   m_Name: 2HPball
@@ -145,7 +145,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.40185, y: 0.48448, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5311196608779505292}
@@ -273,7 +273,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8358028304625900618
+--- !u!114 &-861523364374893766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,14 +282,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3140999685387080474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfc58139e71c03468f97c93834c5ced, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a88d0bb611ed246bceb325abab6480, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PowerUp1HP
-  Speed: 1
-  respawnTime: 1
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUp2HP
+  Speed: 0.5
   lifesystem: {fileID: 0}
-  PlayerRigidbod2D: {fileID: 5537788192681032518}
-  posiupFX: {fileID: 8300000, guid: 239ab6125df7a3d499dc7698fca7df84, type: 3}
+  PlayerRigidbod2D: {fileID: 0}
+  posiupFX: {fileID: 0}
   powerAS: {fileID: 0}
 --- !u!82 &6488058787801132348
 AudioSource:

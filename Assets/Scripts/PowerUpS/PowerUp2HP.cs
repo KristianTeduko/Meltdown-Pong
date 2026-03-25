@@ -3,6 +3,8 @@ using UnityEngine;
 public class PowerUp2HP : MonoBehaviour
 {
     public float Speed = 0.5f;
+    public float respawnTime = 1.0f;
+
 
     public LifeSystem lifesystem;
     public Rigidbody2D PlayerRigidbod2D;
@@ -16,11 +18,13 @@ public class PowerUp2HP : MonoBehaviour
         powerAS = GetComponent<AudioSource>();
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "CoreBall")
         {
-            lifesystem.GainTwoLifes();
+            lifesystem.GainOneLife();
+            lifesystem.GainOneLife();
 
             // play audio
             AudioSource.PlayClipAtPoint(posiupFX, transform.position);
@@ -37,6 +41,7 @@ public class PowerUp2HP : MonoBehaviour
     {
 
     }
+
     void FixedUpdate()
     {
         PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
