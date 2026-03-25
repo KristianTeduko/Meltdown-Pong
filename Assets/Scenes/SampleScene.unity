@@ -1522,7 +1522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &407583568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2518,6 +2518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUp2HP
   Speed: 0.5
+  respawnTime: 1
   lifesystem: {fileID: 1651090780}
   PlayerRigidbod2D: {fileID: 599206499}
   posiupFX: {fileID: 8300000, guid: 239ab6125df7a3d499dc7698fca7df84, type: 3}
@@ -5924,7 +5925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1688225725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7355,6 +7356,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -861523364374893766, guid: 5db102a530d2eb94e9fc06dbb6d76f11, type: 3}
+      propertyPath: lifesystem
+      value: 
+      objectReference: {fileID: 1651090780}
     - target: {fileID: 3140999685387080474, guid: 5db102a530d2eb94e9fc06dbb6d76f11, type: 3}
       propertyPath: m_Name
       value: 2HPball
@@ -7405,6 +7410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8358028304625900618, guid: 5db102a530d2eb94e9fc06dbb6d76f11, type: 3}
+    - {fileID: -861523364374893766, guid: 5db102a530d2eb94e9fc06dbb6d76f11, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
