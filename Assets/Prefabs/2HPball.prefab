@@ -286,9 +286,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUp2HP
   Speed: 0.5
+  respawnTime: 1
   lifesystem: {fileID: 0}
-  PlayerRigidbod2D: {fileID: 0}
-  posiupFX: {fileID: 0}
+  PlayerRigidbod2D: {fileID: 5537788192681032518}
+  posiupFX: {fileID: 8300000, guid: 239ab6125df7a3d499dc7698fca7df84, type: 3}
   powerAS: {fileID: 0}
 --- !u!82 &6488058787801132348
 AudioSource:

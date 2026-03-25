@@ -23,8 +23,7 @@ public class PowerUp2HP : MonoBehaviour
     {
         if (collision.transform.tag == "CoreBall")
         {
-            lifesystem.GainOneLife();
-            lifesystem.GainOneLife();
+            lifesystem.GainTwoLifes();
 
             // play audio
             AudioSource.PlayClipAtPoint(posiupFX, transform.position);
