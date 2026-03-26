@@ -3,12 +3,17 @@ using UnityEngine;
 
 public class CoreBall : MonoBehaviour
 {
-    public float Speed = 1f;
+
     public Rigidbody2D PlayerRigidbod2D;
-    public float force = 1f;
+    float force = 10f;
+    private float timer;
+
+
 
     GameController gameController;
 
+
+    public PowerUpSpawner powerUpSpawner;
     public CoreRespawner coreRespawner;
     public LifeSystem lifeSystem;
     public ScoreSystem scoreSystem;
@@ -25,13 +30,15 @@ public class CoreBall : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+
+        powerUpSpawner = FindFirstObjectByType<PowerUpSpawner>();
         gameController = FindFirstObjectByType<GameController>();
         coreRespawner = FindFirstObjectByType<CoreRespawner>();
         lifeSystem = FindFirstObjectByType<LifeSystem>();
         scoreSystem = FindFirstObjectByType<ScoreSystem>();
 
         Invoke("StartRandomBallMovement", 1);
-
     }
 
 
@@ -41,11 +48,11 @@ public class CoreBall : MonoBehaviour
         Debug.Log("pablo roation");
         ballRotation = directions[randomDirectionNumber]; // get random direction for the ball
 
-        movement = new Vector2(Speed, 0).normalized;
+        movement = new Vector2(powerUpSpawner.coreballspeed, 0).normalized;
 
         Debug.Log("it moves");
 
-        Vector2 direction = Quaternion.Euler(0, 0, ballRotation) * Vector2.right; // add speed to ball
+        Vector2 direction = Quaternion.Euler(0, 0, ballRotation) * Vector2.right; // add powerUpSpawner.coreballspeed to ball
         PlayerRigidbod2D.AddForce(direction, ForceMode2D.Impulse);
     }
 
@@ -60,8 +67,8 @@ public class CoreBall : MonoBehaviour
             float randomAngle = 20f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+            // Keep powerUpSpawner.coreballspeed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * powerUpSpawner.coreballspeed;
 
         }
 
@@ -74,8 +81,8 @@ public class CoreBall : MonoBehaviour
             float randomAngle = 20f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+            // Keep powerUpSpawner.coreballspeed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * powerUpSpawner.coreballspeed;
 
         }
 
@@ -91,8 +98,8 @@ public class CoreBall : MonoBehaviour
             float randomAngle = 15f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+            // Keep powerUpSpawner.coreballspeed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * powerUpSpawner.coreballspeed;
         }
 
         if (collision.collider.CompareTag("PlayerDown"))
@@ -105,8 +112,8 @@ public class CoreBall : MonoBehaviour
             float randomAngle = -15f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+            // Keep powerUpSpawner.coreballspeed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * powerUpSpawner.coreballspeed;
         }
 
         if (collision.collider.CompareTag("Walls"))
@@ -118,10 +125,23 @@ public class CoreBall : MonoBehaviour
             float randomAngle = 0f;
             v = Quaternion.Euler(0, 0, randomAngle) * v;
 
-            // Keep speed constant
-            PlayerRigidbod2D.linearVelocity = v.normalized * Speed;
+            // Keep powerUpSpawner.coreballspeed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * powerUpSpawner.coreballspeed;
             
             scoreSystem.GainOneScore();
+        }
+
+        if (collision.collider.CompareTag("CoreBall"))
+        {
+
+            Vector2 v = PlayerRigidbod2D.linearVelocity;
+
+            // Add small random angles
+            float randomAngle = 0f;
+            v = Quaternion.Euler(0, 0, randomAngle) * v;
+
+            // Keep powerUpSpawner.coreballspeed constant
+            PlayerRigidbod2D.linearVelocity = v.normalized * powerUpSpawner.coreballspeed;
         }
 
         if (collision.transform.tag == "KillZone")
@@ -157,7 +177,7 @@ public class CoreBall : MonoBehaviour
     }
     void FixedUpdate()
     {
-        PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * Speed; // MAKE SURE THE BALL MOVES AT A CONSTANT SPEED
+        PlayerRigidbod2D.linearVelocity = PlayerRigidbod2D.linearVelocity.normalized * powerUpSpawner.coreballspeed; // MAKE SURE THE BALL MOVES AT A CONSTANT powerUpSpawner.coreballspeed
     }
 
 }

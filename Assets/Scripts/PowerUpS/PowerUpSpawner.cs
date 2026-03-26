@@ -18,6 +18,13 @@ public class PowerUpSpawner : MonoBehaviour
     public float respawnTime3split;
     public float respawnTimeonehp;
     public float respawnTimetwohp;
+
+
+
+    public float coreballspeed;
+
+
+
     float timer;
     Vector2 pos;
 
@@ -27,7 +34,7 @@ public class PowerUpSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        coreballspeed = 5f;
         StartCoroutine(powerupRandom2split());
         StartCoroutine(powerupRandom3split());
         StartCoroutine(powerup1HP());
@@ -59,7 +66,7 @@ public class PowerUpSpawner : MonoBehaviour
         }
 
 
-        if (timer < 20)
+        if (timer < 5)
         {
             timer = timer + Time.deltaTime;
         }
@@ -70,10 +77,13 @@ public class PowerUpSpawner : MonoBehaviour
         {
             timer = 0;
 
-            respawnTimetwohp += 1f;
-            respawnTimeonehp += 1f;
-            respawnTime2split -= 2f;
-            respawnTime3split -= 2f;
+
+            respawnTimetwohp += 0.1f;
+            respawnTimeonehp += 0.1f;
+            respawnTime2split -= 0.5f;
+            respawnTime3split -= 0.5f;
+
+            coreballspeed += 0.1f;
 
         }
 

@@ -148,9 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc58e65da7a3814fa845ef6f83e89d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoreBallNoRespawn
-  Speed: 5
   PlayerRigidbod2D: {fileID: 7407045098000080079}
-  force: 10
+  powerUpSpawner: {fileID: 0}
   coreRespawner: {fileID: 0}
   lifeSystem: {fileID: 0}
   scoreSystem: {fileID: 0}
